@@ -19,6 +19,7 @@ public class VideoController {
 
     @GetMapping(value = "video/{title}", produces = "video/mp4")
     public Mono<Resource> getVideo(@PathVariable String title, @RequestHeader("Range") String range){
+        System.out.println("byte range = " + range);
         return videoService.getVideo(title);
     }
 }

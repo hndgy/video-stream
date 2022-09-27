@@ -11,13 +11,13 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class VideoServiceImpl implements VideoService{
 
-    private static final String FORMAT = "classpath:video/%s.mp4";
+    private static final String FORMAT = "classpath:videos/%s.mp4";
 
     private final ResourceLoader resourceLoader;
 
     @Override
     public Mono<Resource> getVideo(String title) {
-        return Mono.fromSupplier(() -> resourceLoader.getResource(String.format(title, FORMAT)));
+        return Mono.fromSupplier(() -> resourceLoader.getResource(String.format(FORMAT,title)));
     }
   
 }
